@@ -50,7 +50,8 @@ During decoding, the syndrome is calculated using the parity-check matrix. The v
 | `1100`   | 11              | Bit 11 (D7) corrupted |
 
 * If syndrome ≠ 0000 and overall parity (P0) incorrect, it's a single-bit error — correctable.
-* If syndrome = 0000 but P0 is incorrect, it's a double-bit error — detectable only.
+* If syndrome ≠ 0000 but P0 is correct, it's a double-bit error — detectable only.
+* If syndrome = 0000 but P0 is incorrect, it's a error in the parity bit — correctable.
 
 ---
 
