@@ -7,20 +7,20 @@ module berger_zero_memory(
     input wr_en,
 
     output [7:0] output_data,
-    output single_bit_error_corrected
+    output zero_to_one_error
 );
 
     wire [11:0] encoded;
     wire [11:0] codeword_read;
 
     // Encoder instantiation
-    hamming_sec_encoder encoder (
+    berger_zero_encoder encoder (
         .input_data(input_data),
         .output_code(encoded)
     );
 
     // Memory module
-    mem memory(
+    mem_berger_zero memory(
         .clk(clk),
         .rst(rst),
         .wr_en(wr_en),
@@ -30,10 +30,10 @@ module berger_zero_memory(
     );
 
     // Decoder instantiation
-    hamming_sec_decoder decoder (
+    berger_zero_decoder decoder (
         .in_code(codeword_read),
         .out_data(output_data),
-        .error_corrected(single_bit_error_corrected)
+        .error_detected(zero_to_one_error)
     );
 
 endmodule

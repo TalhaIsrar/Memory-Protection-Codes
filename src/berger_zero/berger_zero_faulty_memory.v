@@ -6,11 +6,12 @@ module berger_zero_faulty_memory(
     input [3:0] input_addr,
     input wr_en,
 
-    input [3:0] fault_addr,
+    input [11:0] unidirectional_fault_mask,
     input fault_enable,
+    input fault_zero_to_one,
 
     output [7:0] output_data,
-    output single_bit_error_corrected
+    output zero_to_one_error
 );
 
     wire [11:0] encoded;
@@ -18,13 +19,13 @@ module berger_zero_faulty_memory(
     wire [11:0] corrupted;
 
     // Encoder instantiation
-    hamming_sec_encoder encoder (
+    berger_zero_encoder encoder (
         .input_data(input_data),
         .output_code(encoded)
     );
 
     // Memory module
-    mem memory(
+    mem_berger_zero memory(
         .clk(clk),
         .rst(rst),
         .wr_en(wr_en),
@@ -33,19 +34,20 @@ module berger_zero_faulty_memory(
         .data_out(codeword_read)
     );
 
-    // Fault injector for single bit flip
-    one_bit_flip_simulator injector (
+    // Fault injector for unidirectional errors
+    unidirectional_error injector (
         .in_code(codeword_read),
-        .fault_bit_addr(fault_addr),
+        .error_mask(unidirectional_fault_mask),
         .fault_en(fault_enable),
+        .zero_to_one_error(fault_zero_to_one),
         .out_error_code(corrupted)
     );
 
     // Decoder instantiation
-    hamming_sec_decoder decoder (
+    berger_zero_decoder decoder (
         .in_code(corrupted),
         .out_data(output_data),
-        .error_corrected(single_bit_error_corrected)
+        .error_detected(zero_to_one_error)
     );
 
 endmodule

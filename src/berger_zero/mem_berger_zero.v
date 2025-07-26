@@ -3,11 +3,11 @@ module mem_berger_zero (
     input         rst,
     input         wr_en,
     input  [3:0]  addr,
-    input  [12:0] data_in,
-    output [12:0] data_out
+    input  [11:0] data_in,
+    output [11:0] data_out
 );
 
-    reg [12:0] mem [0:15];
+    reg [11:0] mem [0:15];
 
     assign data_out = mem[addr];
     integer i;
