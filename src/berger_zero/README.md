@@ -1,10 +1,10 @@
 # 🧠 Berger B0-Protected Memory System
 
-This project implements a **Berger B0 code** scheme for protecting memory from **unidirectional 0→1 bit-flip faults** in hardware using Verilog. It features:
+This project implements a **Berger B0 code** scheme for protecting memory from **unidirectional 0->1 bit-flip faults** in hardware using Verilog. It features:
 
 * Berger(12,8) encoding and decoding logic
 * A simple memory model that stores encoded data
-* A unidirectional fault injector to simulate 0→1 bit-flips only
+* A unidirectional fault injector to simulate 0->1 bit-flips only
 * A decoder that can **detect unidirectional errors** (no correction)
 * A comprehensive testbench for functional verification
 
@@ -12,7 +12,7 @@ This project implements a **Berger B0 code** scheme for protecting memory from *
 
 ## 📘 Berger Code: Overview
 
-Berger codes are **unidirectional error detection codes** that count the number of zero bits in the data and encode that count in binary as redundant bits. They are well-suited to detect faults that cause bits to flip only in one direction (e.g., 0→1).
+Berger codes are **unidirectional error detection codes** that count the number of zero bits in the data and encode that count in binary as redundant bits. They are well-suited to detect faults that cause bits to flip only in one direction (e.g., 0->1).
 
 We use the **Berger(12,8)** configuration:
 

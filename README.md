@@ -21,6 +21,7 @@ This repository focuses on such codes implemented in Verilog for hardware design
 │    ├── hamming_sec     / # Hamming Single Error Correction code project
 │    ├── hamming_sec_ded / # Hamming Single Error Correction & Double Error Detection code project
 │    ├── berger_zero     / # Berger B0 Code for 0->1 Unidirectional Error Detection
+│    ├── berger_one      / # Berger B1 Code for 1->0 Unidirectional Error Detection
 │    └── ... # OTHERS TO BE ADDED
 │
 ├── tb/ # Testbenches corresponding to different projects
@@ -52,6 +53,9 @@ This repository focuses on such codes implemented in Verilog for hardware design
 
 - [Berger B0 (Unidirectional 0->1 Error Detection)](src/berger_zero/README.md)  
   Implements Berger(12,8) code that **detects all unidirectional 0->1 errors** for 8-bit data. Supports fault injection to test error correction in memory modules.
+
+- [Berger B1 (Unidirectional 1->0 Error Detection)](src/berger_one/README.md)  
+  Implements Berger(12,8) code that **detects all unidirectional 1->0 errors** for 8-bit data. Supports fault injection to test error correction in memory modules.
 
 ---
 
