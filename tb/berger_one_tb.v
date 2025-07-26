@@ -25,7 +25,7 @@ module berger_one_tb();
         .fault_enable(fault_enable),
         .fault_zero_to_one(zero_to_one_error),
         .output_data(output_data),
-        .zero_to_one_error(error_detected)
+        .one_to_zero_error(error_detected)
     );
 
     // Clock generation: 10ns period

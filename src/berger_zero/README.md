@@ -77,7 +77,7 @@ We use the **Berger(12,8)** configuration:
 * Input: `in_code [11:0]`
 * Outputs: `out_data [7:0]`, `error_detected`
 * Checks if the zero count in data matches the appended Berger code bits.
-* Detects unidirectional errors (0→1), no correction.
+* Detects unidirectional errors (0->1), no correction.
 
 ### 🔹 `mem_berger_zero`
 
@@ -85,7 +85,7 @@ We use the **Berger(12,8)** configuration:
 
 ### 🔹 `unidirectional_error`
 
-* Injects unidirectional 0→1 errors at specified bits when enabled.
+* Injects unidirectional 0->1 errors at specified bits when enabled.
 
 ### 🔹 `berger_zero_memory`
 
@@ -100,8 +100,8 @@ We use the **Berger(12,8)** configuration:
 ## ✅ Features Tested
 
 * Correct encoding and decoding of 8-bit data with Berger code
-* Unidirectional fault injection (0→1) at any bit in the 12-bit codeword
-* Error detection for multiple simultaneous 0→1 bit-flips
+* Unidirectional fault injection (0->1) at any bit in the 12-bit codeword
+* Error detection for multiple simultaneous 0->1 bit-flips
 * Memory write/read cycles with and without faults
 * Latch-free, fully synthesizable Verilog code
 * Waveform verification for visual inspection

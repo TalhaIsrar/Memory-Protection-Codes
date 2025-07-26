@@ -7,7 +7,7 @@ module berger_one_memory(
     input wr_en,
 
     output [7:0] output_data,
-    output zero_to_one_error
+    output one_to_zero_error
 );
 
     wire [11:0] encoded;
@@ -33,7 +33,7 @@ module berger_one_memory(
     berger_one_decoder decoder (
         .in_code(codeword_read),
         .out_data(output_data),
-        .error_detected(zero_to_one_error)
+        .error_detected(one_to_zero_error)
     );
 
 endmodule
